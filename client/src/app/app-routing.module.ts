@@ -5,14 +5,15 @@ import {AuthComponent} from "./pages/auth/auth.component";
 import {ShopComponent} from "./pages/shop/shop.component";
 import {BasketComponent} from "./pages/basket/basket.component";
 import {DevicePageComponent} from "./pages/device-page/device-page.component";
+import {ADMIN_ROUTE, BASKET_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "./consts.module";
 
 const routes: Routes = [
-  {path: 'admin', component: AdminComponent},
-  {path: 'login', component: AuthComponent},
-  {path: 'registration', component: AuthComponent},
-  {path: '', component: ShopComponent},
-  {path: 'basket', component: BasketComponent},
-  {path: 'device', component: DevicePageComponent},
+  {path: ADMIN_ROUTE, component: AdminComponent},
+  {path: LOGIN_ROUTE, component: AuthComponent},
+  {path: REGISTRATION_ROUTE, component: AuthComponent},
+  {path: SHOP_ROUTE, component: ShopComponent},
+  {path: BASKET_ROUTE, component: BasketComponent},
+  {path: DEVICE_ROUTE + '/:id', component: DevicePageComponent},
 ];
 
 @NgModule({
