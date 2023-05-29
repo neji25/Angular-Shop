@@ -8,6 +8,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { BasketComponent } from './pages/basket/basket.component';
 import { DevicePageComponent } from './pages/device-page/device-page.component';
 import { ShopComponent } from './pages/shop/shop.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ShopComponent } from './pages/shop/shop.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
