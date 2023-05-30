@@ -6,7 +6,7 @@ import {ShopComponent} from "./pages/shop/shop.component";
 import {BasketComponent} from "./pages/basket/basket.component";
 import {DevicePageComponent} from "./pages/device-page/device-page.component";
 import {ADMIN_ROUTE, BASKET_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "./consts.module";
-import {AuthGuard} from "./auth/auth.guard";
+import {AuthGuard} from "./services/auth.guard";
 
 const routes: Routes = [
   {path: ADMIN_ROUTE, component: AdminComponent, canActivate: [AuthGuard]},
@@ -15,14 +15,11 @@ const routes: Routes = [
   {path: SHOP_ROUTE, component: ShopComponent},
   {path: BASKET_ROUTE, component: BasketComponent, canActivate: [AuthGuard]},
   {path: DEVICE_ROUTE + '/:id', component: DevicePageComponent},
+  {path: '**', redirectTo: SHOP_ROUTE}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-  constructor() {
-  }
-
-}
+export class AppRoutingModule {}
