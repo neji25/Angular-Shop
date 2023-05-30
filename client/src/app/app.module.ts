@@ -8,7 +8,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { BasketComponent } from './pages/basket/basket.component';
 import { DevicePageComponent } from './pages/device-page/device-page.component';
 import { ShopComponent } from './pages/shop/shop.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NavBarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
