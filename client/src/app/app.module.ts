@@ -9,6 +9,8 @@ import { BasketComponent } from './pages/basket/basket.component';
 import { DevicePageComponent } from './pages/device-page/device-page.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NavBarComponent
+    NavBarComponent,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
