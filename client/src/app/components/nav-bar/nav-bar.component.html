@@ -1,6 +1,14 @@
 <mat-toolbar color="primary">
-  <span>User Management</span>
-   <a mat-button class="mx-3">Home</a>
-   <a mat-button>About</a>
-   <a mat-button>Contact</a>
- </mat-toolbar>
+  <div class="container position-relative">
+    <a [style]="{color: 'white'}" [routerLink]="SHOP_ROUTE">КупиДевайс</a>
+    <div *ngIf="auth.isLoggedIn; else noAuth" class="position-absolute top-0 end-0">
+      <a mat-button>Админ-панель</a>
+      <a mat-button (click)="auth.logout()">Выйти</a>
+    </div>
+  </div>
+</mat-toolbar>
+<ng-template #noAuth>
+  <div class="position-absolute top-0 end-0">
+    <a mat-button (click)="auth.login()" [routerLink]="LOGIN_ROUTE">Авторизация</a>
+  </div>
+</ng-template>

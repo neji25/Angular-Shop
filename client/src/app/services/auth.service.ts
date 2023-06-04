@@ -8,16 +8,9 @@ import {delay} from "rxjs/operators";
 export class AuthService {
   isLoggedIn = true
 
-  redirectUrl: string | null = null
-
-  login(): Observable<boolean> {
-    return of(true).pipe(
-      delay(1000),
-      tap(() => this.isLoggedIn = true)
-
-    )
+  login() {
+    this.isLoggedIn = true
   }
-
   logout():void {
     this.isLoggedIn = false
   }

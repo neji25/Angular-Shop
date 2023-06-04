@@ -1,1 +1,29 @@
-<p>auth works!</p>
+<div
+  class="container d-flex justify-content-center align-items-center"
+  [ngStyle]="{height: windowHeight + 'px'}"
+>
+  <mat-card style="width: 600px" class="p-5">
+    <mat-card-title class="m-auto">{{isLogin ? 'Авторизация' : 'Регистрация'}}</mat-card-title>
+    <form class="d-flex flex-column">
+      <mat-form-field class="mt-2">
+        <mat-label>Ваш email:</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ваш пароль:</mat-label>
+        <input type="password" matInput>
+      </mat-form-field>
+      <mat-grid-list cols="2" rowHeight="40px" class="d-flex justify-content-between">
+        <mat-grid-tile *ngIf="isLogin" >
+          Нет аккаунта? &nbsp; <a [routerLink]="'/'+ REGISTRATION_ROUTE">Зарегистрируйтесь</a>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="!isLogin">
+          Есть аккаунт? &nbsp; <a [routerLink]="'/'+ LOGIN_ROUTE">Войдите</a>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button mat-raised-button color="accent">{{isLogin ? 'Войти' : 'Зарегистрироваться'}}</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </mat-card>
+</div>

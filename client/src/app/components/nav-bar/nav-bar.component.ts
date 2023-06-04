@@ -1,17 +1,15 @@
-import {Component, ViewChild} from '@angular/core';
-import {MatMenuTrigger} from "@angular/material/menu";
-import {MatButtonModule} from "@angular/material/button";
-import { MatToolbarModule } from '@angular/material/toolbar';
+import {Component} from '@angular/core';
+import {LOGIN_ROUTE, SHOP_ROUTE} from "../../consts.module";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'nav-bar',
-  standalone: true,
-  templateUrl: 'nav-bar.component.html',
-  imports: [
-    MatToolbarModule,
-    MatButtonModule
-  ]
+  templateUrl: 'nav-bar.component.html'
 })
 export class NavBarComponent {
-  
+  protected readonly SHOP_ROUTE: string = SHOP_ROUTE;
+  constructor(protected auth: AuthService) {
+  }
+
+  protected readonly LOGIN_ROUTE = LOGIN_ROUTE;
 }
