@@ -24,4 +24,15 @@
       </mat-card>
     </div>
   </div>
+  <div class="row d-flex flex-column m-3">
+    <h1>Характеристики </h1>
+    <div
+      class="row"
+      *ngFor="let info of description"
+      [id]="info.id"
+      [ngStyle]="{'background-color': Number(info.id) % 2 === 0 ? 'transparent' : 'lightgray', 'padding': '10px'}"
+    >
+      {{info.title}}: {{info.description}}
+    </div>
+  </div>
 </div>

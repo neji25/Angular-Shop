@@ -20,4 +20,5 @@ export class DevicePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  protected readonly Number = Number;
 }

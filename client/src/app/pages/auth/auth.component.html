@@ -21,7 +21,7 @@
           Есть аккаунт? &nbsp; <a [routerLink]="'/'+ LOGIN_ROUTE">Войдите</a>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button mat-raised-button color="accent">{{isLogin ? 'Войти' : 'Зарегистрироваться'}}</button>
+          <button mat-raised-button color="accent" (click)="auth.login()" [routerLink]="ADMIN_ROUTE">{{isLogin ? 'Войти' : 'Зарегистрироваться'}}</button>
         </mat-grid-tile>
       </mat-grid-list>
     </form>
