@@ -1,0 +1,9 @@
+<mat-chip-listbox>
+  <mat-chip-option
+    *ngFor="let brand of device.getBrands"
+    [id]="brand.id"
+    color="accent"
+  >
+    {{brand.name}}
+  </mat-chip-option>
+</mat-chip-listbox>

@@ -1,0 +1,8 @@
+<div class="row d-flex">
+  <device-item
+    class="col-3"
+    *ngFor="let device of devices.getDevices"
+    [id]="device.id"
+    [device]="device"
+  ></device-item>
+</div>

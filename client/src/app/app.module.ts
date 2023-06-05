@@ -16,6 +16,14 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { TypeBarComponent } from './components/type-bar/type-bar.component';
+import {MatListModule} from "@angular/material/list";
+import { BrandBarComponent } from './components/brand-bar/brand-bar.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatChipsModule} from "@angular/material/chips";
+import { DeviceListComponent } from './components/device-list/device-list.component';
+import { DeviceItemComponent } from './components/device-item/device-item.component';
+import {NgOptimizedImage} from "@angular/common";
 
 
 @NgModule({
@@ -27,6 +35,10 @@ import {MatGridListModule} from "@angular/material/grid-list";
     DevicePageComponent,
     ShopComponent,
     NavBarComponent,
+    TypeBarComponent,
+    BrandBarComponent,
+    DeviceListComponent,
+    DeviceItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +49,11 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatListModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]
