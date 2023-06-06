@@ -24,6 +24,10 @@ import {MatChipsModule} from "@angular/material/chips";
 import { DeviceListComponent } from './components/device-list/device-list.component';
 import { DeviceItemComponent } from './components/device-item/device-item.component';
 import {NgOptimizedImage} from "@angular/common";
+import { CreateBrandComponent } from './components/modals/create-brand/create-brand.component';
+import { CreateTypeComponent } from './components/modals/create-type/create-type.component';
+import { CreateDeviceComponent } from './components/modals/create-device/create-device.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -39,6 +43,9 @@ import {NgOptimizedImage} from "@angular/common";
     BrandBarComponent,
     DeviceListComponent,
     DeviceItemComponent,
+    CreateBrandComponent,
+    CreateTypeComponent,
+    CreateDeviceComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,8 @@ import {NgOptimizedImage} from "@angular/common";
     MatListModule,
     MatButtonToggleModule,
     MatChipsModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
