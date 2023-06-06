@@ -1,1 +1,46 @@
-<p>create-device works!</p>
+<h2 mat-dialog-title>Добавление нового девайса</h2>
+<mat-dialog-content>
+  <form>
+    <!--Dropdown for type-->
+    <mat-form-field>
+      <mat-label>Выберите тип</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let type of device.getTypes" [value]="type.name" [id]="type.id">{{type.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!--Dropdown for brand-->
+    <p></p>
+    <mat-form-field>
+      <mat-label>Выберите брэнд</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let brand of device.getTypes" [value]="brand.name" [id]="brand.id">{{brand.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!--Input for device name-->
+    <p></p>
+    <mat-form-field class="example-full-width" style="width: 500px">
+      <mat-label>Наименование</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <!--Input for cost of device-->
+    <p></p>
+    <mat-form-field class="example-full-width" style="width: 500px">
+      <mat-label>Стоимость</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <!--Input for cost of device-->
+    <p></p>
+    <label class="input-file">
+      <input type="file" name="file">
+      <span class="input-file-btn">Выберите файл</span>
+      <span class="input-file-text">Максимум 10мб</span>
+    </label>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Закрыть</button>
+  <button mat-raised-button [mat-dialog-close]="true" color="accent">Добавить</button>
+</mat-dialog-actions>

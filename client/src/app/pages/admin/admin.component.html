@@ -1,68 +1,7 @@
 <div class="container d-flex flex-column">
-  <button mat-raised-button class="mt-2 p-2 " color="accent" (click)="openVerticallyCentered(modalType)">Добавить тип</button>
-  <button mat-raised-button class="mt-2 p-2 " color="accent" (click)="openVerticallyCentered(modalBrand)">Добавить брэнд</button>
-  <button mat-raised-button class="mt-2 p-2 " color="accent" (click)="openVerticallyCentered(modalDevice)">Добавить устройство</button>
+  <button mat-raised-button class="mt-2 p-2 " color="accent" (click)="openTypeModal()">Добавить тип</button>
+  <button mat-raised-button class="mt-2 p-2 " color="accent" (click)="openBrandModal()">Добавить брэнд</button>
+  <button mat-raised-button class="mt-2 p-2 " color="accent" (click)="openDeviceModal()">Добавить устройство</button>
 </div>
-
-
-<!--Type Modal-->
-<ng-template #modalType let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Добавление типа девайса</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <mat-form-field class="example-full-width" style="width: 100%">
-        <mat-label>Тип девайса</mat-label>
-        <input type="text" matInput placeholder="">
-      </mat-form-field>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button mat-raised-button (click)="modal.close('Close')">Закрыть</button>
-    <button mat-raised-button color="accent">Добавить</button>
-  </div>
-</ng-template>
-
-<!--Brand Modal-->
-<ng-template #modalBrand let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Добавление брэнда девайса</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <mat-form-field class="example-full-width" style="width: 100%">
-        <mat-label>Брэнд девайса</mat-label>
-        <input type="text" matInput placeholder="">
-      </mat-form-field>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button mat-raised-button (click)="modal.close('Close')">Закрыть</button>
-    <button mat-raised-button color="accent">Добавить</button>
-  </div>
-</ng-template>
-
-<!--Device Modal-->
-<ng-template #modalDevice let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Добавление нового девайса</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <mat-form-field class="example-full-width" style="width: 100%">
-        <mat-label>Введине название девайса</mat-label>
-        <input type="text" matInput placeholder="">
-      </mat-form-field>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button mat-raised-button (click)="modal.close('Close')">Закрыть</button>
-    <button mat-raised-button color="accent">Добавить</button>
-  </div>
-</ng-template>
 
 

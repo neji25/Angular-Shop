@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DeviceService} from "../../../services/device.service";
 
 @Component({
   selector: 'app-create-device',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-device.component.css']
 })
 export class CreateDeviceComponent {
-
+  constructor(protected device: DeviceService) {
+  }
 }

@@ -28,6 +28,10 @@ import { CreateBrandComponent } from './components/modals/create-brand/create-br
 import { CreateTypeComponent } from './components/modals/create-type/create-type.component';
 import { CreateDeviceComponent } from './components/modals/create-device/create-device.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatSelectModule} from "@angular/material/select";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MaterialFileInputModule} from "ngx-material-file-input";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -61,7 +65,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatButtonToggleModule,
     MatChipsModule,
     NgOptimizedImage,
-    NgbModule
+    NgbModule,
+    MatSelectModule,
+    MatDialogModule,
+    MaterialFileInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
