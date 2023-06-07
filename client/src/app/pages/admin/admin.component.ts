@@ -24,20 +24,26 @@ export class AdminComponent implements OnInit {
   }
   openTypeModal() {
    const dialogRef = this.dialog.open(CreateTypeComponent)
-    dialogRef.afterClosed().subscribe(type => {
-      console.log(`Dialog type: ${type}`)
+    dialogRef.afterClosed().subscribe(closed => {
+      if(closed) {
+        console.log("Type Dialog Closed")
+      }
     })
   }
   openBrandModal() {
     const dialogRef = this.dialog.open(CreateBrandComponent)
-    dialogRef.afterClosed().subscribe(brand => {
-      console.log(`Dialog brand: ${brand}`)
+    dialogRef.afterClosed().subscribe(closed => {
+      if(closed) {
+        console.log("Brand Dialog Closed")
+      }
     })
   }
   openDeviceModal() {
     const dialogRef = this.dialog.open(CreateDeviceComponent)
-    dialogRef.afterClosed().subscribe(device => {
-      console.log(`Dialog brand: ${device}`)
+    dialogRef.afterClosed().subscribe(closed => {
+      if(closed) {
+        console.log("Device Dialog Closed")
+      }
     })
   }
 }

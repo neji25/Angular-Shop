@@ -14,7 +14,7 @@
     <mat-form-field>
       <mat-label>Выберите брэнд</mat-label>
       <mat-select>
-        <mat-option *ngFor="let brand of device.getTypes" [value]="brand.name" [id]="brand.id">{{brand.name}}</mat-option>
+        <mat-option *ngFor="let brand of device.getBrands" [value]="brand.name" [id]="brand.id">{{brand.name}}</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -38,6 +38,19 @@
       <span class="input-file-btn">Выберите файл</span>
       <span class="input-file-text">Максимум 10мб</span>
     </label>
+    <hr>
+    <a mat-raised-button color="primary" (click)="addInfo()">Добавить новое свойство</a>
+    <div class="row" *ngFor="let info of properties">
+        <mat-form-field class="col-4 mt-1" [id]="info.number">
+          <mat-label>название свойства</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field class="col-4 mt-1">
+          <mat-label>Описание свойства</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <a mat-button class="col-4 mt-3" color="warn" style="width: 100px;" (click)="removeInfo(info.number)">Удалить</a>
+    </div>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

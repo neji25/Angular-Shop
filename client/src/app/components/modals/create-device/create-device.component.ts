@@ -7,6 +7,23 @@ import {DeviceService} from "../../../services/device.service";
   styleUrls: ['./create-device.component.css']
 })
 export class CreateDeviceComponent {
+  properties = [{
+    title: '',
+    description: '',
+    number: Date.now()
+  }]
+
   constructor(protected device: DeviceService) {
+  }
+
+  addInfo() {
+    this.properties.unshift({
+      title: '',
+      description: '',
+      number: Date.now()
+    })
+  }
+  removeInfo(number: number) {
+    this.properties = this.properties.filter(i => i.number !== number)
   }
 }

@@ -12,5 +12,5 @@ export class NavBarComponent {
   }
 
   protected readonly LOGIN_ROUTE = LOGIN_ROUTE;
-    protected readonly ADMIN_ROUTE = ADMIN_ROUTE;
+  protected readonly ADMIN_ROUTE = ADMIN_ROUTE;
 }
