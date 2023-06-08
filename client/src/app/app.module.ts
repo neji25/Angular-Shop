@@ -32,6 +32,9 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MaterialFileInputModule} from "ngx-material-file-input";
 import {MatIconModule} from "@angular/material/icon";
+import {FormsModule} from "@angular/forms";
+import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
+import {AuthService} from "./services/auth.service";
 
 
 @NgModule({
@@ -51,27 +54,29 @@ import {MatIconModule} from "@angular/material/icon";
     CreateTypeComponent,
     CreateDeviceComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
 
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatInputModule,
-    MatGridListModule,
-    MatListModule,
-    MatButtonToggleModule,
-    MatChipsModule,
-    NgOptimizedImage,
-    NgbModule,
-    MatSelectModule,
-    MatDialogModule,
-    MaterialFileInputModule,
-    MatIconModule
-  ],
-  providers: [],
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatInputModule,
+        MatGridListModule,
+        MatListModule,
+        MatButtonToggleModule,
+        MatChipsModule,
+        NgOptimizedImage,
+        NgbModule,
+        MatSelectModule,
+        MatDialogModule,
+        MaterialFileInputModule,
+        MatIconModule,
+        FormsModule,
+        HttpClientModule
+    ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
