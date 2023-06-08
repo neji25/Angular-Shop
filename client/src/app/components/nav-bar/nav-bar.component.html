@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
   <div class="container position-relative">
     <a [style]="{color: 'white'}" [routerLink]="SHOP_ROUTE">КупиДевайс</a>
-    <div *ngIf="auth.isLoggedIn; else noAuth" class="position-absolute top-0 end-0">
+    <div *ngIf="auth.isAuthenticated(); else noAuth" class="position-absolute top-0 end-0">
       <a mat-button [routerLink]="ADMIN_ROUTE">Админ-панель</a>
-      <a mat-button [routerLink]="LOGIN_ROUTE" (click)="auth.logout()">Выйти</a>
+      <a mat-button (click)="logout()">Выйти</a>
     </div>
   </div>
 </mat-toolbar>

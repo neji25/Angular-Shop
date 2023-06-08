@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE} from "../../consts.module";
+import {ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../../consts.module";
 import {Router} from "@angular/router";
 import { NgForm } from '@angular/forms';
 import {AuthService} from "../../services/auth.service";
+import jwtDecode from "jwt-decode";
 
 @Component({
   selector: 'app-services',
@@ -31,11 +32,13 @@ export class AuthComponent implements OnInit {
     }
     if(this.isLogin) {
       this.auth.login(user).subscribe(response => {
-        console.log(response)
+        this.auth.setToken(response.token)
+        this.router.navigateByUrl(SHOP_ROUTE)
       })
     } else {
       this.auth.registration(user).subscribe(response => {
-        console.log(response)
+        this.auth.setToken(response.token)
+        this.router.navigateByUrl(SHOP_ROUTE)
       })
     }
   }

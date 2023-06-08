@@ -33,8 +33,9 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MaterialFileInputModule} from "ngx-material-file-input";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
-import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {AuthService} from "./services/auth.service";
+import {TokenInterceptorService} from "./services/interceptor.service";
 
 
 @NgModule({
@@ -76,7 +77,13 @@ import {AuthService} from "./services/auth.service";
         FormsModule,
         HttpClientModule
     ],
-  providers: [AuthService],
+  providers: [AuthService,
+                {
+                  provide: HTTP_INTERCEPTORS,
+                  useClass: TokenInterceptorService,
+                  multi: true
+                }
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
