@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Device} from "../../shared/types/device.interface";
+import {Device} from "../../shared/interfaces/device.interface";
 import {DEVICE_ROUTE} from "../../consts.module";
 
 @Component({

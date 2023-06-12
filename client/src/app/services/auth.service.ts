@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
-import {Observable, of, tap} from "rxjs";
-import {delay} from "rxjs/operators";
+import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import jwtDecode from "jwt-decode";
-import {AuthResponse} from "../shared/types/auth.interface";
+import {AuthResponse} from "../shared/interfaces/auth.interface";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  isLoggedIn = true
   private jwtHelper: JwtHelperService = new JwtHelperService()
-
-  private apiUrlSignUp = "http://localhost:5000/api/user/registration"
-  private apiUrlSignIn = "http://localhost:5000/api/user/login"
 
   constructor(private http: HttpClient) {
   }
@@ -30,10 +25,10 @@ export class AuthService {
     localStorage.setItem('token', token)
   }
   registration(data: any):Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(this.apiUrlSignUp, {email: data.email, password: data.password, role: "ADMIN"})
+    return this.http.post<AuthResponse>(`${environment.url}/api/user/registration`, {email: data.email, password: data.password, role: "ADMIN"})
   }
   login(data: any):Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(this.apiUrlSignIn, {email: data.email, password: data.password})
+    return this.http.post<AuthResponse>(`${environment.url}/api/user/login`, {email: data.email, password: data.password})
   }
   logout():void {
     localStorage.removeItem("token")

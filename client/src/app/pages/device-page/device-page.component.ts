@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Description, Device} from "../../shared/types/device.interface";
+import {Description, Device} from "../../shared/interfaces/device.interface";
 
 @Component({
   selector: 'device-page',

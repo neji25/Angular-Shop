@@ -30,7 +30,6 @@ import { CreateDeviceComponent } from './components/modals/create-device/create-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatSelectModule} from "@angular/material/select";
 import {MatDialogModule} from "@angular/material/dialog";
-import {MaterialFileInputModule} from "ngx-material-file-input";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
@@ -72,7 +71,6 @@ import {TokenInterceptorService} from "./services/interceptor.service";
         NgbModule,
         MatSelectModule,
         MatDialogModule,
-        MaterialFileInputModule,
         MatIconModule,
         FormsModule,
         HttpClientModule

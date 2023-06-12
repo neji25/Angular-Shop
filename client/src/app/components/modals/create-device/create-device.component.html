@@ -5,7 +5,7 @@
     <mat-form-field>
       <mat-label>Выберите тип</mat-label>
       <mat-select>
-        <mat-option *ngFor="let type of device.getTypes" [value]="type.name" [id]="type.id">{{type.name}}</mat-option>
+        <mat-option *ngFor="let type of types" [value]="type.name" [id]="type.id">{{type.name}}</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -14,7 +14,7 @@
     <mat-form-field>
       <mat-label>Выберите брэнд</mat-label>
       <mat-select>
-        <mat-option *ngFor="let brand of device.getBrands" [value]="brand.name" [id]="brand.id">{{brand.name}}</mat-option>
+        <mat-option *ngFor="let brand of brands" [value]="brand.name" [id]="brand.id">{{brand.name}}</mat-option>
       </mat-select>
     </mat-form-field>
 

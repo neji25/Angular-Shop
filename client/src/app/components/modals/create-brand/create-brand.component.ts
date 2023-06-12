@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-brand.component.css']
 })
 export class CreateBrandComponent {
-
 }

@@ -1,15 +1,31 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DeviceService} from "../../services/device.service";
+import {Type} from "../../shared/interfaces/type.interface";
+import {Observable, Subscription} from "rxjs";
+import {Brand} from "../../shared/interfaces/brand.interface";
+
+interface onDestroy {
+}
 
 @Component({
   selector: 'type-bar',
   templateUrl: './type-bar.component.html',
   styleUrls: ['./type-bar.component.css']
 })
-export class TypeBarComponent {
-  constructor(protected device: DeviceService) {
+export class TypeBarComponent implements OnInit, OnDestroy {
+  types: Type[] = []
+
+  types$: Subscription = new Subscription();
+
+  constructor(protected deviceService: DeviceService) {
   }
-  setSelectedType(id: number) {
-    this.device.setSelectedType(id)
+
+  ngOnInit() {
+    this.types$ = this.deviceService.fetchTypes().subscribe(types => this.types = types)
   }
+
+  ngOnDestroy() {
+    this.types$.unsubscribe()
+  }
+
 }
