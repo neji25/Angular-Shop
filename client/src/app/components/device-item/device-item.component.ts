@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Device} from "../../shared/interfaces/device.interface";
 import {DEVICE_ROUTE} from "../../consts.module";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'device-item',
@@ -9,6 +10,7 @@ import {DEVICE_ROUTE} from "../../consts.module";
 })
 export class DeviceItemComponent {
   @Input() device: Device
+  protected readonly url = environment.url;
   constructor() {
     this.device = {
       id: "",
