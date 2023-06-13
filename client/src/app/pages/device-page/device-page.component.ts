@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Description, Device} from "../../shared/interfaces/device.interface";
 import {environment} from "../../../environments/environment";
 import {Subscription} from "rxjs";
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './device-page.component.html',
   styleUrls: ['./device-page.component.css']
 })
-export class DevicePageComponent implements OnInit {
+export class DevicePageComponent implements OnInit, OnDestroy {
   Number = Number;
   url: string = environment.url;
   id: string = ""
@@ -31,6 +31,10 @@ export class DevicePageComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.device$ = this.deviceService.fetchDevice(this.id).subscribe(device => {this.device = device})
+  }
+
+  ngOnDestroy() {
+    this.device$.unsubscribe()
   }
 
 }
