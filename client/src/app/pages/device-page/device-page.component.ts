@@ -14,7 +14,7 @@ export class DevicePageComponent implements OnInit {
   Number = Number;
   url: string = environment.url;
   id: string = ""
-  device: Device = {id: "", name: "", price: 0, raiting: 0, img: ""}
+  device: Device = {id: "", name: "", price: 0, rating: 0, img: ""}
   device$: Subscription = new Subscription
   description: Description[] = [
     {id: "1", title: "Оперативная память", description: '5 гб'},

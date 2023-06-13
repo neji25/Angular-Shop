@@ -16,7 +16,7 @@ export class DeviceItemComponent {
       id: "",
       name: "",
       price: 0,
-      raiting: 0,
+      rating: 0,
       img: ""
     }
   }

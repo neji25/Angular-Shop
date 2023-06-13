@@ -5,7 +5,7 @@ export  interface DeviceList {
       id: string,
       name: string,
       price: number,
-      raiting: number,
+      rating: number,
       img: string
     }
   ]
@@ -15,7 +15,7 @@ export  interface Device {
   id: string,
   name: string,
   price: number,
-  raiting: number,
+  rating: number,
   img: string
 }
 
