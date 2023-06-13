@@ -17,11 +17,6 @@ export class DevicePageComponent implements OnInit, OnDestroy {
   device: Device = {id: "", name: "", price: 0, rating: 0, img: ""}
   device$: Subscription = new Subscription
   description: Description[] = [
-    {id: "1", title: "Оперативная память", description: '5 гб'},
-    {id: "2", title: "Камера", description: '12 Мп'},
-    {id: "3", title: "Процессор", description: 'Пентиум 3'},
-    {id: "4", title: "Кол-во ядер", description: '2'},
-    {id: "5", title: "Аккумулятор", description: '4000'},
   ]
   constructor(
     protected deviceService: DeviceService,

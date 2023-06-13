@@ -12,7 +12,7 @@ export  interface DeviceList {
 }
 
 export  interface Device {
-  id: string,
+  id: string
   name: string,
   price: number,
   rating: number,

@@ -12,15 +12,15 @@ import {HttpClient} from "@angular/common/http";
 export class DeviceService {
   constructor(private http: HttpClient) {}
 
-  createType(type: Type):Observable<Type> {
+  createType(type: Object): Observable<Type>{
     return this.http.post<Type>(`${environment.url}/api/type`, type)
   }
   fetchTypes(): Observable<Type[]> {
     return this.http.get<Type[]>(`${environment.url}/api/type`)
   }
 
-  createBrand(type: Brand):Observable<Brand> {
-    return this.http.post<Brand>(`${environment.url}/api/brand`, type)
+  createBrand(brand: Object):Observable<Brand> {
+    return this.http.post<Brand>(`${environment.url}/api/brand`, brand)
   }
   fetchBrands(): Observable<Brand[]> {
     return this.http.get<Brand[]>(`${environment.url}/api/brand`)
