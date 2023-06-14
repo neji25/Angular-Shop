@@ -3,6 +3,7 @@ import {DeviceService} from "../../../services/device.service";
 import {Type} from "../../../shared/interfaces/type.interface";
 import {Subscription} from "rxjs";
 import {Brand} from "../../../shared/interfaces/brand.interface";
+import {Description} from "../../../shared/interfaces/device.interface";
 
 @Component({
   selector: 'app-create-device',
@@ -14,14 +15,24 @@ export class CreateDeviceComponent implements OnInit, OnDestroy {
   types: Type[] = []
   brands: Brand[] = []
 
-  types$: Subscription = new Subscription();
-  brands$: Subscription = new Subscription();
+  // Поля устройства
+  name: string = ''
+  price: number = 0
+  file: File | null = null
+  filename: string | undefined = ''
+  brand: number = 0
+  type: number = 0
+  info: Description[] = []
+
 
   properties = [{
     title: '',
     description: '',
     number: Date.now()
   }]
+
+  types$: Subscription = new Subscription();
+  brands$: Subscription = new Subscription();
 
   constructor(protected deviceService: DeviceService) {
   }
@@ -40,6 +51,11 @@ export class CreateDeviceComponent implements OnInit, OnDestroy {
   }
   removeInfo(number: number) {
     this.properties = this.properties.filter(i => i.number !== number)
+  }
+  selectFile(event: any) {
+    this.file = event.target.files[0]
+    this.filename = this.file?.name
+    console.log(this.file)
   }
   ngOnDestroy() {
     this.types$.unsubscribe()
