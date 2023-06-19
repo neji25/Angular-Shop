@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Type} from "../shared/interfaces/type.interface";
 import {Brand} from "../shared/interfaces/brand.interface";
-import {Device, DeviceList} from "../shared/interfaces/device.interface";
+import {Device, DeviceList, submitDevice} from "../shared/interfaces/device.interface";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
@@ -26,8 +26,8 @@ export class DeviceService {
     return this.http.get<Brand[]>(`${environment.url}/api/brand`)
   }
 
-  createDevice(device: Device):Observable<Device> {
-    return this.http.post<Device>(`${environment.url}/api/device`, device)
+  createDevice(device: FormData):Observable<submitDevice> {
+    return this.http.post<submitDevice>(`${environment.url}/api/device`, device)
   }
   fetchAllDevices():Observable<DeviceList> {
     return this.http.get<DeviceList>(`${environment.url}/api/device`)

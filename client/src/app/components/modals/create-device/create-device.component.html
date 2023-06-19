@@ -5,7 +5,11 @@
     <mat-form-field>
       <mat-label>Выберите тип</mat-label>
       <mat-select>
-        <mat-option *ngFor="let type of types" [value]="type.name" [id]="type.id">{{type.name}}</mat-option>
+        <mat-option *ngFor="let type of types"
+                    [value]="type.name"
+                    [id]="type.id"
+                    (click)="onSelectedType(type.id)"
+        >{{type.name}}</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -14,7 +18,11 @@
     <mat-form-field>
       <mat-label>Выберите брэнд</mat-label>
       <mat-select>
-        <mat-option *ngFor="let brand of brands" [value]="brand.name" [id]="brand.id">{{brand.name}}</mat-option>
+        <mat-option *ngFor="let brand of brands"
+                    [value]="brand.name"
+                    [id]="brand.id"
+                    (click)="onSelectedBrand(brand.id)"
+        >{{brand.name}}</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -22,38 +30,39 @@
     <p></p>
     <mat-form-field class="example-full-width" style="width: 500px">
       <mat-label>Наименование</mat-label>
-      <input matInput>
+      <input matInput name="name" [(ngModel)]="name">
     </mat-form-field>
 
     <!--Input for cost of device-->
     <p></p>
     <mat-form-field class="example-full-width" style="width: 500px">
       <mat-label>Стоимость</mat-label>
-      <input matInput>
+      <input matInput name="price" [(ngModel)]="price">
     </mat-form-field>
-    <!--Input for cost of device-->
+
+    <!--Input for image of device-->
     <p></p>
     <label class="input-file">
       <input type="file" name="file" (change)="selectFile($event)">
       <span class="input-file-btn">Выберите файл</span>
-      <span class="input-file-text">{{filename ? filename : 'До 10 Мб'}}</span>
+      <span class="input-file-text">{{file ? file.name : 'До 10 Мб'}}</span>
     </label>
     <hr>
-    <a mat-raised-button color="primary" (click)="addInfo()">Добавить новое свойство</a>
+    <a mat-raised-button color="primary" class="mb-3" (click)="addInfo()">Добавить новое свойство</a>
     <div class="row" *ngFor="let info of properties">
-        <mat-form-field class="col-4 mt-1" [id]="info.number">
-          <mat-label>название свойства</mat-label>
-          <input matInput>
+        <mat-form-field class="col-4 mt-1" [id]="info.id">
+          <mat-label>Название свойства</mat-label>
+          <input matInput name="title" (change)="changeInfo(info.id, $event)" [value]="info.title">
         </mat-form-field>
         <mat-form-field class="col-4 mt-1">
           <mat-label>Описание свойства</mat-label>
-          <input matInput>
+          <input matInput name="description" (change)="changeInfo(info.id, $event)" [value]="info.description">
         </mat-form-field>
-        <a mat-button class="col-4 mt-3" color="warn" style="width: 100px;" (click)="removeInfo(info.number)">Удалить</a>
+        <a mat-button class="col-4 mt-3" color="warn" style="width: 100px;" (click)="removeInfo(info.id)">Удалить</a>
     </div>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button mat-dialog-close>Закрыть</button>
-  <button mat-raised-button [mat-dialog-close]="true" color="accent">Добавить</button>
+  <button mat-raised-button [mat-dialog-close]="closeDialog" color="accent" (click)="addDevice()">Добавить</button>
 </mat-dialog-actions>

@@ -12,6 +12,8 @@ import {Description} from "../../../shared/interfaces/device.interface";
 })
 
 export class CreateDeviceComponent implements OnInit, OnDestroy {
+  closeDialog: boolean = false
+
   types: Type[] = []
   brands: Brand[] = []
 
@@ -19,20 +21,14 @@ export class CreateDeviceComponent implements OnInit, OnDestroy {
   name: string = ''
   price: number = 0
   file: File | null = null
-  filename: string | undefined = ''
-  brand: number = 0
-  type: number = 0
-  info: Description[] = []
+  brandId: number = 0
+  typeId: number = 0
 
-
-  properties = [{
-    title: '',
-    description: '',
-    number: Date.now()
-  }]
+  properties: Description[] = []
 
   types$: Subscription = new Subscription();
   brands$: Subscription = new Subscription();
+  newDevice$: Subscription = new Subscription();
 
   constructor(protected deviceService: DeviceService) {
   }
@@ -42,23 +38,53 @@ export class CreateDeviceComponent implements OnInit, OnDestroy {
     this.brands$ = this.deviceService.fetchBrands().subscribe(brands => this.brands = brands)
   }
 
+  onSelectedType(id: string) {
+    this.typeId = Number(id)
+  }
+  onSelectedBrand(id: string) {
+    this.brandId = Number(id)
+  }
+
   addInfo() {
-    this.properties.unshift({
+    this.properties.push({
+      id: String(Date.now()),
       title: '',
-      description: '',
-      number: Date.now()
+      description: ''
     })
   }
-  removeInfo(number: number) {
-    this.properties = this.properties.filter(i => i.number !== number)
+
+  changeInfo = (id: string, event: any) => {
+    this.properties = this.properties.map(prop => prop.id === id ? {...prop, [event.target.name]: event.target.value}: prop)
+  }
+
+  addDevice() {
+    const formData = new FormData()
+    formData.append('name', this.name)
+    formData.append('price', `${this.price}`)
+    formData.append('img', this.file ? this.file : '')
+    formData.append('brandId', `${this.brandId}`)
+    formData.append('typeId', `${this.typeId}`)
+    formData.append('properties', JSON.stringify(this.properties))
+    this.newDevice$ = this.deviceService.createDevice(formData).subscribe(
+      () => {
+      this.closeDialog = true
+      },
+      error => {
+        console.log(error)
+    }
+    )
+  }
+
+  removeInfo(id: string) {
+    this.properties = this.properties.filter(i => i.id !== id)
   }
   selectFile(event: any) {
     this.file = event.target.files[0]
-    this.filename = this.file?.name
     console.log(this.file)
   }
   ngOnDestroy() {
     this.types$.unsubscribe()
     this.brands$.unsubscribe()
+    this.newDevice$.unsubscribe()
   }
 }
